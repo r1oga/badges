@@ -1,2 +1,4 @@
-cache/
-out/
+cache
+contracts/out
+node_modules
+.idea
