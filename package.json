@@ -7,9 +7,14 @@
   "scripts": {
     "format": "prettier -w contracts/src",
     "precompile": "yarn format",
-    "compile": "forge build"
+    "compile": "forge build",
+    "merkle": "node scripts/merkle.ts",
+    "test": "forge test"
   },
   "devDependencies": {
+    "@types/node": "^18.0.4",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.2.32",
     "prettier": "^2.7.1",
     "prettier-plugin-solidity": "^1.0.0-dev.22"
   }
