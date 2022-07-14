@@ -9,15 +9,21 @@ contract BadgeFactory {
 
     Badge[] badges;
 
+    event Mint(address dao, address to);
+
+    constructor() {}
+
     function mint(
         address dao,
-        bytes32[] calldata proof,
+        bytes32[] memory proof,
         bytes32 root,
         bytes32 leaf
     ) external {
-        require(proof.verifyCalldata(root, leaf), "not whitelisted");
+        require(proof.verify(root, leaf), "not whitelisted");
 
         Badge badge = new Badge(dao, msg.sender);
         badges.push(badge);
+
+        emit Mint(dao, msg.sender);
     }
 }
